@@ -55,5 +55,5 @@ message.innerHTML = `We use cookie for improved functionality and analytics.
 
 header.append(message.cloneNode(true));
 
-document.querySelector
+document.querySelector('.')
  
