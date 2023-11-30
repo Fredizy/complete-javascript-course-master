@@ -271,6 +271,7 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   };
 }
 
+
 function removeErrorOverlay() {
   var overlay = document.getElementById(OVERLAY_ID);
 
@@ -278,6 +279,7 @@ function removeErrorOverlay() {
     overlay.remove();
   }
 }
+
 
 function createErrorOverlay(data) {
   var overlay = document.createElement('div');
@@ -314,7 +316,6 @@ function getParents(bundle, id) {
   if (bundle.parent) {
     parents = parents.concat(getParents(bundle.parent, id));
   }
-
   return parents;
 }
 
@@ -366,15 +367,18 @@ function hmrAcceptRun(bundle, id) {
   var cached = bundle.cache[id];
   bundle.hotData = {};
 
+  
   if (cached) {
     cached.hot.data = bundle.hotData;
   }
 
+ 
   if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
     cached.hot._disposeCallbacks.forEach(function (cb) {
       cb(bundle.hotData);
     });
   }
+
 
   delete bundle.cache[id];
   bundle(id);

@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
@@ -18,7 +18,7 @@ const renderCountry = function (data, className = '') {
     </div>
   </article>
   `;
-  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.insertAdjacentHTML('beforeend',                                                                  );
   countriesContainer.style.opacity = 1;
 };
 
@@ -27,13 +27,27 @@ const renderError = function (msg) {
   countriesContainer.style.opacity = 1;
 };
 
+
 const getJSON = function (url, errorMsg = 'Something went wrong') {
   return fetch(url).then(response => {
     if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
-
+  
     return response.json();
   });
 };
+
+
+ const request = fetch('https://restcountries.eu/rest/v2/name/portugal');
+ countriesContainer.insertAdjacentElement('beforeend', html);
+ countriesContainer.style.opacity = 1;
+
+const getsJSON = function(url, errormsg = 'Something went wrong') {
+   return fetch(url).then(response => {
+    if(!response.ok) throw new Error(`${errormsg} (${response.status})`)
+
+    return response.json();
+   })
+}
 
 /*
 ///////////////////////////////////////
